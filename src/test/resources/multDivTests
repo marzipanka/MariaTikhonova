@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MultDivTests">
+
+    <test name="MultDiv">
+        <classes>
+            <class name="hw1.MultiplyTest"/>
+            <class name="hw1.DivideTest"/>
+        </classes>
+    </test>
+</suite>

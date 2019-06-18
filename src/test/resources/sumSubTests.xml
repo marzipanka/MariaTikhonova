@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SumSubTests">
+
+    <test name="SumSub">
+        <classes>
+            <class name="hw1.SumTest"/>
+            <class name="hw1.SubstractTest"/>
+        </classes>
+    </test>
+</suite>
