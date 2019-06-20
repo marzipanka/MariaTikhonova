@@ -6,8 +6,10 @@ import org.testng.annotations.*;
 
 public class MultiplyTest {
 
+    // TODO This field could be extracted to the base class
     private Calculator calc;
 
+    // TODO These two method could be extracted to base class
     @BeforeMethod
     public void creatingInstanceOfCalculator() {
         calc = new Calculator();
@@ -19,7 +21,7 @@ public class MultiplyTest {
     }
 
 
-
+    // TODO Why do you decide use this set of data?
     @DataProvider
     public static Object[][] numbersForMultiplyLong() {
         return new Object[][]{{9223372036854775806L, 1L, 9223372036854775806L},
