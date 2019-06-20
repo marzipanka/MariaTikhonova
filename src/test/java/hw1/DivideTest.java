@@ -1,35 +1,31 @@
 package hw1;
 
-import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class DivideTest {
+public class DivideTest extends BaseClass {
 
-    // TODO This field could be extracted to the base class
-    private Calculator calc;
+    //fixed TODO This field could be extracted to the base class (private Calculator calc)
 
-    // TODO These two method could be extracted to base class
-    @BeforeMethod
-    public void creatingInstanceOfCalculator() {
-        calc = new Calculator();
-    }
+    //fixed TODO These two method could be extracted to base class (@BeforeMethod & @AfterMethod)
 
-    @AfterMethod
-    public void deletingInstanceOfCalculator() {
-        calc = null;
-    }
-
-
-    // TODO Why do you decide use this set of data?
+    //resolved TODO Why do you decide use this set of data?
     @DataProvider
     public static Object[][] numbersForDivLong() {
-        return new Object[][]{{9223372036854775806L, 1L, 9223372036854775806L},
+        return new Object[][]{
+                //checking if the calculator is able to work with such big numbers of long data type
+                {9223372036854775806L, 1L, 9223372036854775806L},
+                //checking if the "b" variable can contain such a big number
                 {1L, 9223372036854775806L, 0L},
+                //checking what happens if the first number is negative and the second one is positive
                 {-20L, 4L, -5L},
+                //checking what happens if the first number is positive and the second one is negative
                 {20L, -4L, -5L},
+                //checking how it works if both of the numbers are negative
                 {-1L, -1L, 1L},
+                //checking how it works if the first number is zero
                 {0L, 1L, 0L},
+                //checking how it works if both of the numbers are similar
                 {3L, 3L, 1L}};
     }
 

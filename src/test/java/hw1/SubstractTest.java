@@ -4,36 +4,37 @@ import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class SubstractTest {
+public class SubstractTest extends BaseClass {
 
-    // TODO This field could be extracted to the base class
-    private Calculator calc;
+    //fixed TODO This field could be extracted to the base class (private Calculator calc)
 
-    // TODO These two method could be extracted to base class
-    @BeforeMethod
-    public void creatingInstanceOfCalculator() {
-        calc = new Calculator();
-    }
+    //fixed TODO These two method could be extracted to base class (@BeforeMethod & @AfterMethod)
 
-    @AfterMethod
-    public void deletingInstanceOfCalculator() {
-        calc = null;
-    }
-
-
-    // TODO Why do you decide use this set of data?
+    //resolved TODO Why do you decide use this set of data?
     @DataProvider
     public static Object[][] numbersForSubLong() {
-        return new Object[][]{{9223372036854775806L, 1L, 9223372036854775805L},
+        return new Object[][]{
+                //checking if the calculator is able to work with such big numbers of long data type
+                {9223372036854775806L, 1L, 9223372036854775805L},
+                //checking if the "b" variable can contain such a big number
                 {1L, 9223372036854775806L, -9223372036854775805L},
+                //testing the calculator using normal numbers just to check if it's calculations are correct
                 {14L, 9L, 5L},
+                //checking how it works when all the numbers are negative and the result is also going to be negative
                 {-10L, -9L, -1L},
+                //checking how it works when the all the numbers are negative but the answer has to be positive
                 {-9L, -10L, 1L},
+                //checking how it works when the "a" number is negative and the result has to be negative too
                 {-2L, 20L, -22L},
+                //checking how it works when the "b" number is negative but the result has to be positive
                 {2L, -20L, 22L},
+                //checking how it works when we substract something from zero
                 {0L, 1L, -1L},
+                //checking how it works when we substract zero from something
                 {-1L, 0L, -1L},
+                //checking how it works when all the numbers are zeros
                 {0L, 0L, 0L},
+                //checking what happens when the "a" and the "b" numbers are similar
                 {2L, 2L, 0L}};
     }
 
