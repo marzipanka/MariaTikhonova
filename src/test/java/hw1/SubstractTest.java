@@ -1,16 +1,12 @@
 package hw1;
 
+// TODO Unused imports
 import com.epam.tat.module4.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class SubstractTest extends BaseClass {
 
-    //fixed TODO This field could be extracted to the base class (private Calculator calc)
-
-    //fixed TODO These two method could be extracted to base class (@BeforeMethod & @AfterMethod)
-
-    //resolved TODO Why do you decide use this set of data?
     @DataProvider
     public static Object[][] numbersForSubLong() {
         return new Object[][]{
@@ -40,6 +36,7 @@ public class SubstractTest extends BaseClass {
 
     @Test(groups={"addSubstract"}, dataProvider = "numbersForSubLong")
     public void subLongTest(long a, long b, long res) {
+        // TODO This variable is redundant
         long expected = res;
         long actual = calc.sub(a,b);
         Assert.assertEquals(actual, expected);
@@ -63,6 +60,7 @@ public class SubstractTest extends BaseClass {
 
     @Test(groups={"addSubstract"}, dataProvider = "numbersForSubDouble")
     public void subDoubleTest(double a, double b, double res) {
+        // TODO This variable is redundant
         double expected = res;
         double actual = calc.sub(a,b);
         Assert.assertEquals(actual, expected);
