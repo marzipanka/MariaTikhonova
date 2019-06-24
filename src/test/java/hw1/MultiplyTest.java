@@ -26,12 +26,10 @@ public class MultiplyTest extends BaseClass {
 
     @Test(groups={"divideMultiply"}, dataProvider = "numbersForMultiplyLong")
     public void multiplyLongTest(long a, long b, long res) {
-        // TODO This variable is redundant
-        long expected = res;
+        // fixed TODO This variable is redundant
         long actual = calc.mult(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
-
 
 
     @DataProvider
@@ -48,9 +46,8 @@ public class MultiplyTest extends BaseClass {
 
     @Test(groups={"divideMultiply"}, dataProvider = "numbersForMultiplyDouble")
     public void multiplyDoubleTest(double a, double b, double res) {
-        // TODO This variable is redundant
-        double expected = res;
+        // fixed TODO This variable is redundant
         double actual = calc.mult(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
 }

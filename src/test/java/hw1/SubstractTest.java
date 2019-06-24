@@ -1,7 +1,6 @@
 package hw1;
 
-// TODO Unused imports
-import com.epam.tat.module4.Calculator;
+// fixed TODO Unused imports
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -36,12 +35,10 @@ public class SubstractTest extends BaseClass {
 
     @Test(groups={"addSubstract"}, dataProvider = "numbersForSubLong")
     public void subLongTest(long a, long b, long res) {
-        // TODO This variable is redundant
-        long expected = res;
+        // fixed TODO This variable is redundant
         long actual = calc.sub(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
-
 
 
     @DataProvider
@@ -60,9 +57,8 @@ public class SubstractTest extends BaseClass {
 
     @Test(groups={"addSubstract"}, dataProvider = "numbersForSubDouble")
     public void subDoubleTest(double a, double b, double res) {
-        // TODO This variable is redundant
-        double expected = res;
+        // fixed TODO This variable is redundant
         double actual = calc.sub(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
 }

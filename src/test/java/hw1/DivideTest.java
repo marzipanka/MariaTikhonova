@@ -26,12 +26,10 @@ public class DivideTest extends BaseClass {
 
     @Test(groups={"divideMultiply"}, dataProvider = "numbersForDivLong")
     public void divLongTest(long a, long b, long res) {
-        // TODO This variable is redundant
-        long expected = res;
+        // fixed TODO This variable is redundant
         long actual = calc.div(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
-
 
 
     @DataProvider
@@ -48,9 +46,8 @@ public class DivideTest extends BaseClass {
 
     @Test(groups={"divideMultiply"}, dataProvider = "numbersForDivDouble")
     public void divDoubleTest(double a, double b, double res) {
-        // TODO This variable is redundant
-        double expected = res;
+        // fixed TODO This variable is redundant
         double actual = calc.div(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
 }

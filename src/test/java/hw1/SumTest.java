@@ -30,12 +30,10 @@ public class SumTest extends BaseClass {
 
     @Test(groups={"addSubstract"}, dataProvider = "numbersForSumLong")
     public void sumLongTest(long a, long b, long res) {
-        // TODO This variable is redundant
-        long expected = res;
+        // fixed TODO This variable is redundant
         long actual = calc.sum(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
-
 
 
     @DataProvider
@@ -55,9 +53,8 @@ public class SumTest extends BaseClass {
 
     @Test(groups={"addSubstract"}, dataProvider = "numbersForSumDouble")
     public void sumDoubleTest(double a, double b, double res) {
-        // TODO This variable is redundant
-        double expected = res;
+        // fixed TODO This variable is redundant
         double actual = calc.sum(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
 }
