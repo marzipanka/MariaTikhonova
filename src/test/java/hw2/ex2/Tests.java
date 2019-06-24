@@ -9,6 +9,7 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
+// TODO Please format class as descrtibed in the Java Code convention (tabulation)
 public class Tests extends BaseClass {
 
     @Test
@@ -17,11 +18,13 @@ public class Tests extends BaseClass {
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         driver.findElement(By.className("dropdown-toggle")).click();
         List<WebElement> serviceOptionsTop = driver.findElements(By.xpath("//ul[@class='dropdown-menu']/li"));
+        // TODO Where is assertions of the text from menu?
         assertEquals(serviceOptionsTop.size(), 9);
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
         driver.findElement(By.cssSelector("a[ui='label']")).click();
         List<WebElement> serviceOptionsLeft = driver.findElements(By.xpath("//ul[@class='sub']/li"));
+        // TODO Where is assertions of the text from menu?
         assertEquals(serviceOptionsLeft.size(), 9);
 
         // 7. Open through the header menu Service -> Different Elements Page
@@ -64,6 +67,7 @@ public class Tests extends BaseClass {
         assertEquals(checkCheckBoxIsSelected("Selen"), checkLogRowOfCheckbox("metal", "value", " Selen"));
 
         // 15. Select in dropdown
+        // TODO Why do you do not use Select element ?
         driver.findElement(By.cssSelector("select[class='uui-form-element']")).click();
         driver.findElement(By.xpath("//option[text()[contains(.,'Yellow')]]")).click();
 
@@ -83,14 +87,20 @@ public class Tests extends BaseClass {
 }
 
 private void clickCheckBox(String value) {
+    // TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
+    // TODO In this case you could use String.format
     driver.findElement(By.xpath("//label[text()[contains(.,'" + value + "')]]/input")).click();
 }
 
 private boolean checkCheckBoxIsSelected(String value) {
-   return driver.findElement(By.xpath("//label[text()[contains(.,'" + value + "')]]/input")).isSelected();
+    // TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
+    // TODO In this case you could use String.format
+    return driver.findElement(By.xpath("//label[text()[contains(.,'" + value + "')]]/input")).isSelected();
 }
 
 private boolean checkLogRowOfCheckbox(String type, String value, String condition) {
+        // TODO I recommend replace string in xpath to the constant in format //li[text()[contains(.,'%s: %s changed to %s')]]
+    // TODO In this case you could use String.format
     return driver.findElement(By.xpath("//li[text()[contains(.,'" + type + ": " + value +" changed to " + condition + "')]]")).isDisplayed();
 }
 }
