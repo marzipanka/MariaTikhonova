@@ -5,11 +5,6 @@ import org.testng.annotations.*;
 
 public class MultiplyTest extends BaseClass {
 
-    //fixed TODO This field could be extracted to the base class (private Calculator calc)
-
-    //fixed TODO These two method could be extracted to base class (@BeforeMethod & @AfterMethod)
-
-    //resolved TODO Why do you decide use this set of data?
     @DataProvider
     public static Object[][] numbersForMultiplyLong() {
         return new Object[][]{
@@ -31,11 +26,10 @@ public class MultiplyTest extends BaseClass {
 
     @Test(groups={"divideMultiply"}, dataProvider = "numbersForMultiplyLong")
     public void multiplyLongTest(long a, long b, long res) {
-        long expected = res;
+        // fixed TODO This variable is redundant
         long actual = calc.mult(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
-
 
 
     @DataProvider
@@ -52,8 +46,8 @@ public class MultiplyTest extends BaseClass {
 
     @Test(groups={"divideMultiply"}, dataProvider = "numbersForMultiplyDouble")
     public void multiplyDoubleTest(double a, double b, double res) {
-        double expected = res;
+        // fixed TODO This variable is redundant
         double actual = calc.mult(a,b);
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, res);
     }
 }
