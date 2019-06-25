@@ -3,13 +3,17 @@ package hw2.ex2;
 import hw2.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.testng.Assert.*;
 
-// TODO Please format class as descrtibed in the Java Code convention (tabulation)
+// fixed TODO Please format class as descrtibed in the Java Code convention (tabulation)
 public class Tests extends BaseClass {
 
     @Test
@@ -18,14 +22,14 @@ public class Tests extends BaseClass {
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         driver.findElement(By.className("dropdown-toggle")).click();
         List<WebElement> serviceOptionsTop = driver.findElements(By.xpath("//ul[@class='dropdown-menu']/li"));
-        // TODO Where is assertions of the text from menu?
-        assertEquals(serviceOptionsTop.size(), 9);
+        // fixed TODO Where is assertions of the text from menu?
+        checkServiceDropDownContainsOptions(serviceOptionsTop, true);
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
         driver.findElement(By.cssSelector("a[ui='label']")).click();
         List<WebElement> serviceOptionsLeft = driver.findElements(By.xpath("//ul[@class='sub']/li"));
-        // TODO Where is assertions of the text from menu?
-        assertEquals(serviceOptionsLeft.size(), 9);
+        // fixed TODO Where is assertions of the text from menu?
+        checkServiceDropDownContainsOptions(serviceOptionsLeft, false);
 
         // 7. Open through the header menu Service -> Different Elements Page
         driver.findElement(By.className("dropdown-toggle")).click();
@@ -67,9 +71,8 @@ public class Tests extends BaseClass {
         assertEquals(checkCheckBoxIsSelected("Selen"), checkLogRowOfCheckbox("metal", "value", " Selen"));
 
         // 15. Select in dropdown
-        // TODO Why do you do not use Select element ?
-        driver.findElement(By.cssSelector("select[class='uui-form-element']")).click();
-        driver.findElement(By.xpath("//option[text()[contains(.,'Yellow')]]")).click();
+        // fixed TODO Why do you do not use Select element ?
+        selectDropdownOption("Yellow");
 
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
         assertTrue(checkLogRowOfCheckbox("Colors", "value", "Yellow"));
@@ -83,24 +86,43 @@ public class Tests extends BaseClass {
         // 18. Assert that for each checkbox there is an individual log row
         //     and value is corresponded to the status of checkbox.
         assertEquals(!checkCheckBoxIsSelected("Water"), checkLogRowOfCheckbox("Water", "condition", "false"));
-        assertEquals(!checkCheckBoxIsSelected("Wind"), checkLogRowOfCheckbox("Wind", "condition","false"));
-}
+        assertEquals(!checkCheckBoxIsSelected("Wind"), checkLogRowOfCheckbox("Wind", "condition", "false"));
+    }
 
-private void clickCheckBox(String value) {
-    // TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
-    // TODO In this case you could use String.format
-    driver.findElement(By.xpath("//label[text()[contains(.,'" + value + "')]]/input")).click();
-}
+    private void checkServiceDropDownContainsOptions(List<WebElement> webElements, boolean uppercase) {
+        List<String> serviceOptions = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Tables With Pages", "Different Elements");
+        if (uppercase) {
+            serviceOptions.replaceAll(String::toUpperCase);
+        }
+        List<String> actualServiceOptions = new ArrayList<>();
+        for (WebElement e : webElements) {
+            actualServiceOptions.add(e.getText());
+        }
+        assertFalse(Collections.disjoint(actualServiceOptions, serviceOptions));
+    }
 
-private boolean checkCheckBoxIsSelected(String value) {
-    // TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
-    // TODO In this case you could use String.format
-    return driver.findElement(By.xpath("//label[text()[contains(.,'" + value + "')]]/input")).isSelected();
-}
+    private void clickCheckBox(String value) {
+        // fixed TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
+        // fixed TODO In this case you could use String.format
+        driver.findElement(By.xpath(String.format("//label[text()[contains(.,'%s')]]/input", value))).click();
+    }
 
-private boolean checkLogRowOfCheckbox(String type, String value, String condition) {
-        // TODO I recommend replace string in xpath to the constant in format //li[text()[contains(.,'%s: %s changed to %s')]]
-    // TODO In this case you could use String.format
-    return driver.findElement(By.xpath("//li[text()[contains(.,'" + type + ": " + value +" changed to " + condition + "')]]")).isDisplayed();
-}
+    private boolean checkCheckBoxIsSelected(String value) {
+        // fixed TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
+        // fixed TODO In this case you could use String.format
+        return driver.findElement(By.xpath(String.format("//label[text()[contains(.,'%s')]]/input", value))).isSelected();
+    }
+
+    private boolean checkLogRowOfCheckbox(String type, String value, String condition) {
+        // fixed TODO I recommend replace string in xpath to the constant in format //li[text()[contains(.,'%s: %s changed to %s')]]
+        // fixed TODO In this case you could use String.format
+        return driver.findElement(By.xpath(String.format("//li[text()[contains(.,'%s: %s changed to %s')]]", type, value, condition))).isDisplayed();
+    }
+
+    private void selectDropdownOption(String option) {
+        WebElement dropdown = driver.findElement(By.cssSelector("select[class='uui-form-element']"));
+        Select select = new Select(dropdown);
+        dropdown.click();
+        select.selectByVisibleText(option);
+    }
 }

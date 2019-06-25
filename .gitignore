@@ -1,3 +1,8 @@
 **/.idea
 *.iml
 **/target
+/src/test/java/hw1/
+/src/test/resources/calculator-1.0.jar
+/src/test/resources/multDivTests.xml
+/src/test/resources/sumSubTests.xml
+/src/test/resources/test.xml

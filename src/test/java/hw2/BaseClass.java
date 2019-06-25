@@ -7,8 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.asserts.SoftAssert;
 
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -18,7 +22,7 @@ public abstract class BaseClass {
 
     @BeforeSuite
     public void setUpDriverPath() {
-        // TODO Where is chromedriver.exe in the resource folder?
+        // fixed TODO Where is chromedriver.exe in the resource folder?
         System.setProperty("webdriver.chrome.driver",
                 Paths.get("src/test/resources/driver/chromedriver.exe")
                         .toAbsolutePath().toString());
@@ -61,6 +65,25 @@ public abstract class BaseClass {
 
     protected void checkElementIsDisplayed(WebElement element) {
         assertTrue(element.isDisplayed());
+    }
+
+    protected void checkElementsAreDisplayed(List<WebElement> webElements) {
+        SoftAssert softAssert = new SoftAssert();
+        for (WebElement e : webElements) {
+            softAssert.assertTrue(e.isDisplayed());
+        }
+        softAssert.assertAll();
+    }
+
+    protected void checkElementsHaveProperTexts(List<WebElement> webElements, List<String> expectedWebElements) {
+        assertEquals(webElements.size(), expectedWebElements.size());
+
+        SoftAssert softAssert = new SoftAssert();
+        for (int i = 0; i < webElements.size(); i++) {
+            softAssert.assertEquals(webElements.get(i).getText(), expectedWebElements.get(i));
+        }
+        softAssert.assertAll();
+
     }
 
 }
