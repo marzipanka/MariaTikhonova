@@ -22,14 +22,11 @@ public class Tests extends BaseClass {
         assertBrowserTitle("Home Page");
 
         // 6. Assert that there are 4 items on the header section are displayed and they have proper texts
-        // fixed TODO It is not necessarily to store all css classes in the xpath
         List<WebElement> headerElements = driver.findElements(By.xpath("//ul[contains(@class, 'm-l8')]/li"));
-        // fixed TODO Lines 27 - 34 and lines 46 - 62 could be combine as one method with 2 parameters
         checkElementsHaveProperTexts(headerElements, Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
 
 
         // 7. Assert that there are 4 images on the Index Page and they are displayed
-        // fixed TODO It could be extracted to the separate method with 1 parameter and used for the all elements collection where required to check visibility
         List<WebElement> indexPageImages = driver.findElements(By.className("benefit-icon"));
         checkElementsAreDisplayed(indexPageImages);
         assertEquals(indexPageImages.size(), 4);
