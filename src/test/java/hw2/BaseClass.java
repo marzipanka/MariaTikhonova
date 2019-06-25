@@ -22,7 +22,6 @@ public abstract class BaseClass {
 
     @BeforeSuite
     public void setUpDriverPath() {
-        // fixed TODO Where is chromedriver.exe in the resource folder?
         System.setProperty("webdriver.chrome.driver",
                 Paths.get("src/test/resources/driver/chromedriver.exe")
                         .toAbsolutePath().toString());

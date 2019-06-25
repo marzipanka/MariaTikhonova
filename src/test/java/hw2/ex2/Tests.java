@@ -13,7 +13,6 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-// fixed TODO Please format class as descrtibed in the Java Code convention (tabulation)
 public class Tests extends BaseClass {
 
     @Test
@@ -22,13 +21,11 @@ public class Tests extends BaseClass {
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         driver.findElement(By.className("dropdown-toggle")).click();
         List<WebElement> serviceOptionsTop = driver.findElements(By.xpath("//ul[@class='dropdown-menu']/li"));
-        // fixed TODO Where is assertions of the text from menu?
         checkServiceDropDownContainsOptions(serviceOptionsTop, true);
 
         // 6. Click on Service subcategory in the left section and check that drop down contains options
         driver.findElement(By.cssSelector("a[ui='label']")).click();
         List<WebElement> serviceOptionsLeft = driver.findElements(By.xpath("//ul[@class='sub']/li"));
-        // fixed TODO Where is assertions of the text from menu?
         checkServiceDropDownContainsOptions(serviceOptionsLeft, false);
 
         // 7. Open through the header menu Service -> Different Elements Page
@@ -71,7 +68,6 @@ public class Tests extends BaseClass {
         assertEquals(checkCheckBoxIsSelected("Selen"), checkLogRowOfCheckbox("metal", "value", " Selen"));
 
         // 15. Select in dropdown
-        // fixed TODO Why do you do not use Select element ?
         selectDropdownOption("Yellow");
 
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
@@ -94,6 +90,7 @@ public class Tests extends BaseClass {
         if (uppercase) {
             serviceOptions.replaceAll(String::toUpperCase);
         }
+        // TODO Why do you not use method for the collections from the ex1.Test?
         List<String> actualServiceOptions = new ArrayList<>();
         for (WebElement e : webElements) {
             actualServiceOptions.add(e.getText());
@@ -102,20 +99,14 @@ public class Tests extends BaseClass {
     }
 
     private void clickCheckBox(String value) {
-        // fixed TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
-        // fixed TODO In this case you could use String.format
         driver.findElement(By.xpath(String.format("//label[text()[contains(.,'%s')]]/input", value))).click();
     }
 
     private boolean checkCheckBoxIsSelected(String value) {
-        // fixed TODO I recommend replace string in xpath to the constant in format //label[text()[contains(.,'%s')]]/input
-        // fixed TODO In this case you could use String.format
         return driver.findElement(By.xpath(String.format("//label[text()[contains(.,'%s')]]/input", value))).isSelected();
     }
 
     private boolean checkLogRowOfCheckbox(String type, String value, String condition) {
-        // fixed TODO I recommend replace string in xpath to the constant in format //li[text()[contains(.,'%s: %s changed to %s')]]
-        // fixed TODO In this case you could use String.format
         return driver.findElement(By.xpath(String.format("//li[text()[contains(.,'%s: %s changed to %s')]]", type, value, condition))).isDisplayed();
     }
 
