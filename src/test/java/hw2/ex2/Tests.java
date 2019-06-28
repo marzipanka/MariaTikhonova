@@ -90,7 +90,6 @@ public class Tests extends BaseClass {
         if (uppercase) {
             serviceOptions.replaceAll(String::toUpperCase);
         }
-        // TODO Why do you not use method for the collections from the ex1.Test?
         List<String> actualServiceOptions = new ArrayList<>();
         for (WebElement e : webElements) {
             actualServiceOptions.add(e.getText());
