@@ -48,7 +48,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw2.xml</suite.xml>
+                <suite.xml>src/test/resources/hw3.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -61,6 +61,7 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>com.calculator</groupId>
             <artifactId>calc-test</artifactId>
@@ -68,10 +69,18 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
         </dependency>
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.6.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
