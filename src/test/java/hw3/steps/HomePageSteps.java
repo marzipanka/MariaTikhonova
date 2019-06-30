@@ -39,6 +39,8 @@ public class HomePageSteps extends BasePageSteps {
         SoftAssert softAssert = new SoftAssert();
         int i = 0;
         for (IndexPageTexts element : IndexPageTexts.values()) {
+            // TODO Here could be NullPointerException
+            // TODO if size HeaderServiceDropdown.values() will be greater than webElements
             softAssert.assertEquals(webElements.get(i).getText(), element.getName());
             i++;
         }
