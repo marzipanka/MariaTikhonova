@@ -58,6 +58,8 @@ public abstract class BasePageSteps {
         SoftAssert softAssert = new SoftAssert();
         int i = 0;
         for (HeaderServiceDropdown element : HeaderServiceDropdown.values()) {
+            // TODO Here could be NullPointerException
+            // TODO if size HeaderServiceDropdown.values() will be greater than webElements
             softAssert.assertEquals(webElements.get(i).getText(), element.getName());
             i++;
         }
@@ -73,6 +75,8 @@ public abstract class BasePageSteps {
         SoftAssert softAssert = new SoftAssert();
         int i = 0;
         for (LeftServiceDropdown element : LeftServiceDropdown.values()) {
+            // TODO Here could be NullPointerException
+            // TODO if size LeftServiceDropdown.values() will be greater than webElements
             softAssert.assertEquals(webElements.get(i).getText(), element.getName());
             i++;
         }

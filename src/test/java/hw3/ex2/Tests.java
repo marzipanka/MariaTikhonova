@@ -58,17 +58,21 @@ public class Tests extends BaseClass {
         differentElementsPageSteps.checkLeftSectionIsDisplayed();
 
         // 11. Select checkboxes
+        // TODO It is better to use enums instead of string
         differentElementsPageSteps.clickCheckbox("Water");
+        // TODO It is better to use enums instead of string
         differentElementsPageSteps.checkCheckboxIsSelected("Water", true);
         differentElementsPageSteps.clickCheckbox("Wind");
         differentElementsPageSteps.checkCheckboxIsSelected("Wind", true);
 
         // 12. Assert that for each checkbox there is an individual log row and value
         //     is corresponded to the status of checkbox.
+        // TODO It is better to use enums instead of string
         differentElementsPageSteps.checkLogRowOfCheckbox("Water", "condition", "true");
         differentElementsPageSteps.checkLogRowOfCheckbox("Wind", "condition", "true");
 
         // 13. Select radio
+        // TODO It is better to use enums instead of string
         differentElementsPageSteps.clickCheckbox("Selen");
         differentElementsPageSteps.checkCheckboxIsSelected("Selen", true);
 
@@ -78,6 +82,7 @@ public class Tests extends BaseClass {
         differentElementsPageSteps.checkLogRowOfCheckbox("metal", "value", " Selen");
 
         // 15. Select in dropdown
+        // TODO It is better to use enums instead of string
         differentElementsPageSteps.selectDropdownOption("Yellow");
 
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
