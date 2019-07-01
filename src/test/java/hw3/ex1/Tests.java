@@ -1,11 +1,11 @@
 package hw3.ex1;
 
-import hw3.BaseClass;
+import hw3.BaseTest;
 import hw3.steps.HomePageSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Tests extends BaseClass {
+public class Tests extends BaseTest {
 
     private HomePageSteps homePageSteps;
 

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -35,14 +36,16 @@ public class HomePageSteps extends BasePageSteps {
         List<WebElement> webElements = homePage.getIndexPageTexts();
         assertEquals(webElements.size(), IndexPageTexts.values().length);
 
+        List<String> indexPageTexts = new ArrayList<>();
+        for (IndexPageTexts element : IndexPageTexts.values()) {
+            indexPageTexts.add(element.getName());
+        }
 
         SoftAssert softAssert = new SoftAssert();
-        int i = 0;
-        for (IndexPageTexts element : IndexPageTexts.values()) {
-            // TODO Here could be NullPointerException
-            // TODO if size HeaderServiceDropdown.values() will be greater than webElements
-            softAssert.assertEquals(webElements.get(i).getText(), element.getName());
-            i++;
+        for (WebElement element : webElements) {
+            // fixed TODO Here could be NullPointerException
+            // fixed TODO if size HeaderServiceDropdown.values() will be greater than webElements
+            softAssert.assertTrue(indexPageTexts.contains(element.getText()));
         }
 
         softAssert.assertAll();

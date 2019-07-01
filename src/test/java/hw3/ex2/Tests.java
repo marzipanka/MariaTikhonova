@@ -1,12 +1,15 @@
 package hw3.ex2;
 
-import hw3.BaseClass;
+import enums.Colors;
+import enums.Conditions;
+import enums.Metals;
+import hw3.BaseTest;
 import hw3.steps.DifferentElementsPageSteps;
 import hw3.steps.HomePageSteps;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class Tests extends BaseClass {
+public class Tests extends BaseTest {
 
     private HomePageSteps homePageSteps;
     private DifferentElementsPageSteps differentElementsPageSteps;
@@ -58,46 +61,46 @@ public class Tests extends BaseClass {
         differentElementsPageSteps.checkLeftSectionIsDisplayed();
 
         // 11. Select checkboxes
-        // TODO It is better to use enums instead of string
-        differentElementsPageSteps.clickCheckbox("Water");
-        // TODO It is better to use enums instead of string
-        differentElementsPageSteps.checkCheckboxIsSelected("Water", true);
-        differentElementsPageSteps.clickCheckbox("Wind");
-        differentElementsPageSteps.checkCheckboxIsSelected("Wind", true);
+        // fixed TODO It is better to use enums instead of string
+        differentElementsPageSteps.clickCheckbox(Conditions.WATER.getName());
+        // fixed TODO It is better to use enums instead of string
+        differentElementsPageSteps.checkCheckboxIsSelected(Conditions.WATER.getName(), true);
+        differentElementsPageSteps.clickCheckbox(Conditions.WIND.getName());
+        differentElementsPageSteps.checkCheckboxIsSelected(Conditions.WIND.getName(), true);
 
         // 12. Assert that for each checkbox there is an individual log row and value
         //     is corresponded to the status of checkbox.
-        // TODO It is better to use enums instead of string
-        differentElementsPageSteps.checkLogRowOfCheckbox("Water", "condition", "true");
-        differentElementsPageSteps.checkLogRowOfCheckbox("Wind", "condition", "true");
+        // fixed TODO It is better to use enums instead of string
+        differentElementsPageSteps.checkLogRowOfCheckbox(Conditions.WATER.getName(), "condition", "true");
+        differentElementsPageSteps.checkLogRowOfCheckbox(Conditions.WIND.getName(), "condition", "true");
 
         // 13. Select radio
-        // TODO It is better to use enums instead of string
-        differentElementsPageSteps.clickCheckbox("Selen");
-        differentElementsPageSteps.checkCheckboxIsSelected("Selen", true);
+        // fixed TODO It is better to use enums instead of string
+        differentElementsPageSteps.clickCheckbox(Metals.SELEN.getName());
+        differentElementsPageSteps.checkCheckboxIsSelected(Metals.SELEN.getName(), true);
 
         // 14. Assert that for radiobutton there is a log row and value is
         //     corresponded to the status of radiobutton.
-        differentElementsPageSteps.checkCheckboxIsSelected("Selen", true);
+        differentElementsPageSteps.checkCheckboxIsSelected(Metals.SELEN.getName(), true);
         differentElementsPageSteps.checkLogRowOfCheckbox("metal", "value", " Selen");
 
         // 15. Select in dropdown
-        // TODO It is better to use enums instead of string
-        differentElementsPageSteps.selectDropdownOption("Yellow");
+        // fixed TODO It is better to use enums instead of string
+        differentElementsPageSteps.selectDropdownOption(Colors.YELLOW.getName());
 
         // 16. Assert that for dropdown there is a log row and value is corresponded to the selected value.
-        differentElementsPageSteps.checkLogRowOfCheckbox("Colors", "value", "Yellow");
+        differentElementsPageSteps.checkLogRowOfCheckbox("Colors", "value", Colors.YELLOW.getName());
 
         // 17. Unselect and assert checkboxes
-        differentElementsPageSteps.clickCheckbox("Water");
-        differentElementsPageSteps.checkCheckboxIsSelected("Water", false);
-        differentElementsPageSteps.clickCheckbox("Wind");
-        differentElementsPageSteps.checkCheckboxIsSelected("Wind", false);
+        differentElementsPageSteps.clickCheckbox(Conditions.WATER.getName());
+        differentElementsPageSteps.checkCheckboxIsSelected(Conditions.WATER.getName(), false);
+        differentElementsPageSteps.clickCheckbox(Conditions.WIND.getName());
+        differentElementsPageSteps.checkCheckboxIsSelected(Conditions.WIND.getName(), false);
 
         // 18. Assert that for each checkbox there is an individual log row
         //     and value is corresponded to the status of checkbox.
-        differentElementsPageSteps.checkLogRowOfCheckbox("Water", "condition", "false");
-        differentElementsPageSteps.checkLogRowOfCheckbox("Wind", "condition", "false");
+        differentElementsPageSteps.checkLogRowOfCheckbox(Conditions.WATER.getName(), "condition", "false");
+        differentElementsPageSteps.checkLogRowOfCheckbox(Conditions.WIND.getName(), "condition", "false");
     }
 
 }

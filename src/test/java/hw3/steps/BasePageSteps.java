@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.testng.Assert.assertEquals;
@@ -55,13 +56,16 @@ public abstract class BasePageSteps {
         List<WebElement> webElements = basePage.getHeaderServiceDropdown();
         assertEquals(webElements.size(), HeaderServiceDropdown.values().length);
 
-        SoftAssert softAssert = new SoftAssert();
-        int i = 0;
+        List<String> headerServiceDropdown = new ArrayList<>();
         for (HeaderServiceDropdown element : HeaderServiceDropdown.values()) {
-            // TODO Here could be NullPointerException
-            // TODO if size HeaderServiceDropdown.values() will be greater than webElements
-            softAssert.assertEquals(webElements.get(i).getText(), element.getName());
-            i++;
+            headerServiceDropdown.add(element.getName());
+        }
+
+        SoftAssert softAssert = new SoftAssert();
+        for (WebElement element : webElements) {
+            // fixed TODO Here could be NullPointerException
+            // fixed TODO if size HeaderServiceDropdown.values() will be greater than webElements
+            softAssert.assertTrue(headerServiceDropdown.contains(element.getText()));
         }
 
         softAssert.assertAll();
@@ -72,13 +76,16 @@ public abstract class BasePageSteps {
         List<WebElement> webElements = basePage.getLeftServiceDropdown();
         assertEquals(webElements.size(), LeftServiceDropdown.values().length);
 
-        SoftAssert softAssert = new SoftAssert();
-        int i = 0;
+        List<String> leftServiceDropdown = new ArrayList<>();
         for (LeftServiceDropdown element : LeftServiceDropdown.values()) {
-            // TODO Here could be NullPointerException
-            // TODO if size LeftServiceDropdown.values() will be greater than webElements
-            softAssert.assertEquals(webElements.get(i).getText(), element.getName());
-            i++;
+            leftServiceDropdown.add(element.getName());
+        }
+
+        SoftAssert softAssert = new SoftAssert();
+        for (WebElement element : webElements) {
+            // fixed TODO Here could be NullPointerException
+            // fixed if size LeftServiceDropdown.values() will be greater than webElements
+            softAssert.assertTrue(leftServiceDropdown.contains(element.getText()));
         }
 
         softAssert.assertAll();
