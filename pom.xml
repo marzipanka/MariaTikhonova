@@ -48,7 +48,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw3.xml</suite.xml>
+                <suite.xml>src/test/resources/hw4.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -81,6 +81,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>3.6.1</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.2.4</version>
         </dependency>
     </dependencies>
 
