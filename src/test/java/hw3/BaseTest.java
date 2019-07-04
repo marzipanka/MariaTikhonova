@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-// fixed TODO I think that is better named this name as BaseTest
 public abstract class BaseTest {
 
     protected WebDriver driver;
