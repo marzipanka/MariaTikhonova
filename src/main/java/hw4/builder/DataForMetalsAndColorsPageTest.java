@@ -16,7 +16,7 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 public class DataForMetalsAndColorsPageTest {
-    Integer summaryNumber1;
+    private Integer summaryNumber1;
     private Integer summaryNumber2;
     private List<Conditions> elements;
     private Colors color;
