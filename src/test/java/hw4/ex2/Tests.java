@@ -20,7 +20,7 @@ public class Tests extends BaseTest {
     @DataProvider
     public static Object[][] dataForMetalsAndColorsPageTest() {
         return new Object[][]{
-
+            // TODO Why do you decide use Object[][] instead of design pattern?
                 {null, null, Arrays.asList(Conditions.EARTH), Colors.YELLOW, Metals.GOLD, null},
                 {3, 8, null, null, null, Arrays.asList(Vegetables.CUCUMBER, Vegetables.TOMATO)},
                 {3, 2, Arrays.asList(Conditions.WATER, Conditions.WIND, Conditions.FIRE),
