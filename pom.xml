@@ -15,6 +15,7 @@
         <allure.version>2.12.1</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <jackson.version>2.9.9</jackson.version>
+        <lombok.version>1.18.8</lombok.version>
     </properties>
 
     <profiles>
@@ -51,7 +52,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw4.xml</suite.xml>
+                <suite.xml>src/test/resources/hw5.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -109,6 +110,13 @@
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -134,6 +142,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}/site</allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
                 <dependencies>
                     <dependency>
