@@ -4,6 +4,7 @@ import enums.HeaderMenu;
 import enums.HeaderServiceDropdown;
 import enums.LeftServiceDropdown;
 import hw5.BasePage;
+import hw5.TestProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -22,6 +23,8 @@ public abstract class BasePageSteps {
     public BasePageSteps(WebDriver driver) {
         basePage = new BasePage(driver);
         PageFactory.initElements(driver, this);
+        TestProvider.getInstance().setDriver(driver);
+
     }
 
     public void assertBrowserTitle(String title) {
