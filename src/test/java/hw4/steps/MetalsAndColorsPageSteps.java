@@ -6,6 +6,7 @@ import enums.Conditions;
 import enums.Metals;
 import enums.Vegetables;
 import hw4.MetalsAndColorsPage;
+import hw4.builder.DataForMetalsAndColorsPageTest;
 import org.openqa.selenium.By;
 
 import java.util.Arrays;
@@ -63,25 +64,25 @@ public class MetalsAndColorsPageSteps extends BasePageSteps {
         $(By.cssSelector("label[for='g" + (vegetables.indexOf(vegetable) + 5) + "']")).click();
     }
 
-    public void checkResult(Integer summaryNumber1, Integer summaryNumber2, List<Conditions> elements, Colors color, Metals metal, List<Vegetables> vegetables) {
-        if ((summaryNumber1 != null) && (summaryNumber2 != null)) {
-            checkSummaryLogRow(summaryNumber1, summaryNumber2);
+    public void checkResult(DataForMetalsAndColorsPageTest testData) {
+        if ((testData.getSummaryNumber1() != null) && (testData.getSummaryNumber2() != null)) {
+            checkSummaryLogRow(testData.getSummaryNumber1(), testData.getSummaryNumber2());
         }
-        if (elements != null) {
-            checkElementsLogRow(elements);
+        if (testData.getElements() != null) {
+            checkElementsLogRow(testData.getElements());
         }
-        if (color != null) {
-            checkColorsLogRow(color);
+        if (testData.getColor() != null) {
+            checkColorsLogRow(testData.getColor());
         }
-        if (metal != null) {
-            checkMetalsLogRow(metal);
+        if (testData.getMetal() != null) {
+            checkMetalsLogRow(testData.getMetal());
         }
-        if (vegetables != null) {
-            checkVegetablesLogRow(vegetables);
+        if (testData.getVegetables() != null) {
+            checkVegetablesLogRow(testData.getVegetables());
         }
     }
 
-    public void checkSummaryLogRow(Integer summaryNumber1, Integer summaryNumber2) {
+    private void checkSummaryLogRow(Integer summaryNumber1, Integer summaryNumber2) {
         String sum = summaryNumber1 + summaryNumber2 + "";
         metalsAndColorsPage.getSummaryLogRow().shouldHave(Condition.exactText(String.format("Summary: %s", sum)));
     }
