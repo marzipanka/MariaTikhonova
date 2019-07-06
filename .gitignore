@@ -1,14 +1,4 @@
 **/.idea
 *.iml
 **/target
-/src/test/java/hw1/
-/src/test/resources/calculator-1.0.jar
-/src/test/resources/multDivTests.xml
-/src/test/resources/sumSubTests.xml
-/src/test/resources/test.xml
-/src/test/java/hw2/
-/src/test/resources/hw2.xml
-/src/main/java/hw3/
-/src/test/java/hw3/
-/src/test/resources/hw3.xml
 /allure-results/
