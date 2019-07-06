@@ -2,7 +2,6 @@ package hw5;
 
 import hw5.steps.HomePageSteps;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -10,7 +9,7 @@ import org.testng.annotations.Test;
 
 @Listeners(AllureAttachmentListener.class)
 @Feature("Testing JDI site")
-@Story("Testing Home Page")
+@Story("Testing Home Page (but it's going to fail)")
 public class FailTest extends BaseTest {
 
     private HomePageSteps homePageSteps;
@@ -22,9 +21,8 @@ public class FailTest extends BaseTest {
         homePageSteps = new HomePageSteps(driver);
     }
 
-    @Step("Checking if Home Page elements are displayed properly (but it's going to fail)")
     @Test
-    public void firstTest() {
+    public void failTest() {
 
         // 2. Assert Browser title
         homePageSteps.assertBrowserTitle("Hello");

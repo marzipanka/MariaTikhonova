@@ -8,7 +8,6 @@ import hw5.BaseTest;
 import hw5.steps.DifferentElementsPageSteps;
 import hw5.steps.HomePageSteps;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -30,7 +29,6 @@ public class Tests extends BaseTest {
         differentElementsPageSteps = new DifferentElementsPageSteps(driver);
     }
 
-    @Step("Checking if checkboxes and dropdowns of Different ELements Page work properly")
     @Test
     public void secondTest() {
 

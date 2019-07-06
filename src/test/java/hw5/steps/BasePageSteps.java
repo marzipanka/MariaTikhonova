@@ -5,6 +5,7 @@ import enums.HeaderServiceDropdown;
 import enums.LeftServiceDropdown;
 import hw5.BasePage;
 import hw5.TestProvider;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -27,18 +28,22 @@ public abstract class BasePageSteps {
 
     }
 
+    @Step("Assert browser title: '{0}'")
     public void assertBrowserTitle(String title) {
         assertEquals(basePage.getBrowserTitle(), title);
     }
 
+    @Step("Log in as user: '{0}'")
     public void login(String username, String password) {
         basePage.login(username, password);
     }
 
+    @Step("Assert user name: '{0}'")
     public void assertUserName(String name) {
         assertEquals(basePage.getUserName(), name);
     }
 
+    @Step("Check header elements have proper texts")
     public void checkHeaderElementsHaveProperTexts() {
 
         List<WebElement> webElements = basePage.getHeaderElements();
@@ -54,6 +59,7 @@ public abstract class BasePageSteps {
         softAssert.assertAll();
     }
 
+    @Step("Check header service dropdown contains options")
     public void checkHeaderServiceDropdownContainsOptions() {
 
         List<WebElement> webElements = basePage.getHeaderServiceDropdown();
@@ -72,6 +78,7 @@ public abstract class BasePageSteps {
         softAssert.assertAll();
     }
 
+    @Step("Check left service dropdown contains options")
     public void checkLeftServiceDropdownContainsOptions() {
 
         List<WebElement> webElements = basePage.getLeftServiceDropdown();
@@ -98,10 +105,12 @@ public abstract class BasePageSteps {
         assertEquals(element.getText(), text);
     }
 
+    @Step("Check left section is displayed")
     public void checkLeftSectionIsDisplayed() {
         checkElementIsDisplayed(basePage.getLeftSection());
     }
 
+    @Step("Check footer is displayed")
     public void checkFooterIsDisplayed() {
         checkElementIsDisplayed(basePage.getFooter());
     }
@@ -114,10 +123,12 @@ public abstract class BasePageSteps {
         basePage.getLeftService().click();
     }
 
+    @Step("Go to different elements page")
     public void clickDifferentElementsButton() {
         basePage.getDifferentElementsButton().click();
     }
 
+    @Step("Assert current URL: '{0}'")
     public void assertCurrentUrl(String url) {
         assertEquals(basePage.getCurrentUrl(), url);
     }

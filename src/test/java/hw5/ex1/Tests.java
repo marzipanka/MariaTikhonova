@@ -4,7 +4,6 @@ import hw5.AllureAttachmentListener;
 import hw5.BaseTest;
 import hw5.steps.HomePageSteps;
 import io.qameta.allure.Feature;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
@@ -25,7 +24,6 @@ public class Tests extends BaseTest {
     }
 
     @Test
-    @Step("Checking if Home Page elements are displayed properly")
     public void firstTest() {
 
         // 2. Assert Browser title
