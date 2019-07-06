@@ -57,7 +57,7 @@ public class DifferentElementsPageSteps extends BasePageSteps {
         assertEquals(differentElementsPage.checkCheckBoxIsSelected(value), expected);
     }
 
-    @Step("Check log row of '{0}' changes to '{2}'")
+    @Step("Check log row of '{0}' changed to '{2}'")
     public void checkLogRowOfCheckbox(String type, String value, String condition) {
         assertTrue(differentElementsPage.checkLogRowIsDisplayed(type, value, condition));
     }
