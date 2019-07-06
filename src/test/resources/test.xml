@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="CalculatorTests">
 
-<test name="AllTests">
-    <packages>
-        <package name="hw1"/>
-    </packages>
-</test>
+    <test name="AllTests">
+        <packages>
+            <package name="hw1"/>
+        </packages>
+    </test>
 </suite>
