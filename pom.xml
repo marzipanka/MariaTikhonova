@@ -16,6 +16,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <jackson.version>2.9.9</jackson.version>
         <lombok.version>1.18.8</lombok.version>
+        <cucumber.version>1.2.5</cucumber.version>
     </properties>
 
     <profiles>
@@ -52,7 +53,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw5.xml</suite.xml>
+                <suite.xml>src/test/resources/hw6.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -117,6 +118,21 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
