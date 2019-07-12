@@ -9,6 +9,7 @@ Feature: Exercise 2
     When I click on 'Service' subcategory in the header
     And I click on 'User Table' button in Service dropdown
     Then Browser title should be equal to 'User Table'
+    # TODO This is not good idea hardcoded
     And 6 NumberType Dropdowns are displayed on Users Table on User Table Page
     And 6 User names are displayed on Users Table on User Table Page
     And 6 Description images are displayed on Users Table on User Table Page
