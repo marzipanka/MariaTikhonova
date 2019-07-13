@@ -165,41 +165,41 @@ public class AssertionSteps extends BaseSteps {
         }
     }
 
-    @Then("6 NumberType Dropdowns are displayed on Users Table on User Table Page")
-    public void sixNumberTypeDropdownsAreDisplayedOnUsersTablePage() {
-        assertEquals(userTablePage.getNumberTypeDropdowns().size(), 6);
+    @Then("'(.+)' NumberType Dropdowns are displayed on Users Table on User Table Page")
+    public void numberTypeDropdownsAreDisplayedOnUsersTablePage(int number) {
+        assertEquals(userTablePage.getNumberTypeDropdowns().size(), number);
         for (int i = 0; i < userTablePage.getNumberTypeDropdowns().size(); i++) {
             checkElementIsDisplayed(userTablePage.getNumberTypeDropdowns().get(i));
         }
     }
 
-    @Then("6 User names are displayed on Users Table on User Table Page")
-    public void sixUserNamesAreDisplayedOnUserTablePage() {
-        assertEquals(userTablePage.getUserTableUserNames().size(), 6);
+    @Then("'(.+)' User names are displayed on Users Table on User Table Page")
+    public void userNamesAreDisplayedOnUserTablePage(int number) {
+        assertEquals(userTablePage.getUserTableUserNames().size(), number);
         for (int i = 0; i < userTablePage.getUserTableUserNames().size(); i++) {
             checkElementIsDisplayed(userTablePage.getUserTableUserNames().get(i));
         }
     }
 
-    @Then("6 Description images are displayed on Users Table on User Table Page")
-    public void sixDescriptionImagesAreDisplayedOnUserTablePage() {
-        assertEquals(userTablePage.getUserTableImages().size(), 6);
+    @Then("'(.+)' Description images are displayed on Users Table on User Table Page")
+    public void descriptionImagesAreDisplayedOnUserTablePage(int number) {
+        assertEquals(userTablePage.getUserTableImages().size(), number);
         for (int i = 0; i < userTablePage.getUserTableImages().size(); i++) {
             checkElementIsDisplayed(userTablePage.getUserTableImages().get(i));
         }
     }
 
-    @Then("6 Description texts under images are displayed on Users Table on User Table Page")
-    public void sixDescriptionTextsUnderImagesAreDisplayed() {
-        assertEquals(userTablePage.getTextsUnderUserTableImages().size(), 6);
+    @Then("'(.+)' Description texts under images are displayed on Users Table on User Table Page")
+    public void descriptionTextsUnderImagesAreDisplayed(int number) {
+        assertEquals(userTablePage.getTextsUnderUserTableImages().size(), number);
         for (int i = 0; i < userTablePage.getTextsUnderUserTableImages().size(); i++) {
             checkElementIsDisplayed(userTablePage.getTextsUnderUserTableImages().get(i));
         }
     }
 
-    @Then("6 checkboxes are displayed on Users Table on User Table Page")
-    public void sixCheckboxesAreDisplayedOnUserTablePage() {
-        assertEquals(userTablePage.getUserTableCheckboxes().size(), 6);
+    @Then("'(.+)' checkboxes are displayed on Users Table on User Table Page")
+    public void checkboxesAreDisplayedOnUserTablePage(int number) {
+        assertEquals(userTablePage.getUserTableCheckboxes().size(), number);
         for (int i = 0; i < userTablePage.getUserTableCheckboxes().size(); i++) {
             checkElementIsDisplayed(userTablePage.getUserTableCheckboxes().get(i));
         }
